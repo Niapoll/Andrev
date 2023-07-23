@@ -8,6 +8,7 @@ ARG BUILD_TOOLS_VERSION=33.0.0
 ARG APKTOOL_VERSION=2.7.0
 ARG BACKSMALI_VERSION=2.5.2
 ARG JADX_VERSION=1.4.7
+ARG REFLUTTER_VERSION=0.7.7
 # Remark: Alpine uses musl libc
 ARG FRIDA_VERSION=16.1.1
 ARG FRIDA_ARCH=x86_64-musl
@@ -65,11 +66,14 @@ RUN curl -Ls "https://github.com/skylot/jadx/releases/download/v$JADX_VERSION/ja
     unzip -q '/jadx.zip' -d "$BUILD_TOOLS_PATH/jadx" && \
     rm '/jadx.zip'
 
+# Install ReFlutter
+RUN pip install --root-user-action=ignore reflutter==$REFLUTTER_VERSION
+
 # Install required Frida
 RUN mkdir -p '/frida-core-devkit' && \
     curl -Ls "https://github.com/frida/frida/releases/download/$FRIDA_VERSION/frida-core-devkit-$FRIDA_VERSION-linux-$FRIDA_ARCH.tar.xz" -o '/frida-core-devkit/frida-core-devkit.tar.xz' && \
     tar -Jxf '/frida-core-devkit/frida-core-devkit.tar.xz' -C '/frida-core-devkit' && \
-    FRIDA_CORE_DEVKIT='/frida-core-devkit' pip install frida-tools && \
+    FRIDA_CORE_DEVKIT='/frida-core-devkit' pip install --root-user-action=ignore frida-tools && \
     rm -rf '/frida-core-devkit'
 
 # Start container
