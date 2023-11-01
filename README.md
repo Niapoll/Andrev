@@ -7,7 +7,8 @@
 [Backsmali](https://github.com/JesusFreke/smali) - Assembler/disassembler for the dex format used by dalvik, Android's Java VM implementation; \
 [Jadx](https://github.com/skylot/jadx) - Dex to Java decompiler; \
 [ReFlutter](https://github.com/Impact-I/reFlutter) - Framework for reverse engineering Flutter apps using the patched version of the Flutter library which is already compiled and ready for app repacking; \
-[Frida](https://frida.re/) - Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers.
+[Frida](https://frida.re/) - Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers. \
+[Krakatau](https://github.com/Storyyeller/Krakatau) - Assembler and disassembler for Java bytecode, which allows you to convert binary classfiles to a human readable text format, make changes, and convert it back to a classfile, even for obfuscated code.
 
 
 ## ⚙️ Build
@@ -26,17 +27,18 @@ docker build --build-arg JDK_VERSION=11 --build-arg ANDROID_VERSION=29 -t andrev
 
 
 ### Build arguments
-| Name                | Description                      |
-| ------------------- | -------------------------------- |
-| JDK_VERSION         | Version of Open JDK              |
-| ANDROID_VERSION     | Version of Android SDK           |
-| BUILD_TOOLS_VERSION | Version of Android Build tools   |
-| APKTOOL_VERSION     | Version of Apktool               |
-| BACKSMALI_VERSION   | Version of Backsmali             |
-| JADX_VERSION        | Version of Jadx                  |
-| REFLUTTER_VERSION   | Version of ReFlutter             |
-| FRIDA_VERSION       | Version of Frida                 |
-| FRIDA_ARCH          | Architecture of system for Frida |
+| Name                 | Description                      |
+| -------------------- | -------------------------------- |
+| JDK_VERSION          | Version of Open JDK              |
+| ANDROID_VERSION      | Version of Android SDK           |
+| BUILD_TOOLS_VERSION  | Version of Android Build tools   |
+| APKTOOL_VERSION      | Version of Apktool               |
+| BACKSMALI_VERSION    | Version of Backsmali             |
+| JADX_VERSION         | Version of Jadx                  |
+| REFLUTTER_VERSION    | Version of ReFlutter             |
+| FRIDA_VERSION        | Version of Frida                 |
+| FRIDA_ARCH           | Architecture of system for Frida |
+| KRAKATAU_COMMIT_HASH | Commit hash of Krakatau          |
 
 
 ## 🏃 Run

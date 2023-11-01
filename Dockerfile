@@ -12,6 +12,7 @@ ARG REFLUTTER_VERSION=0.7.7
 # Remark: Alpine uses musl libc
 ARG FRIDA_VERSION=16.1.4
 ARG FRIDA_ARCH=x86_64-musl
+ARG KRAKATAU_COMMIT_HASH=b469447310dd6f61d95cfc672ceff547825276f7
 
 # Set environment variables
 ENV ANDROID_HOME=/usr/lib/android-sdk
@@ -65,6 +66,13 @@ RUN curl -Ls "https://bitbucket.org/JesusFreke/smali/downloads/baksmali-$BACKSMA
 RUN curl -Ls "https://github.com/skylot/jadx/releases/download/v$JADX_VERSION/jadx-$JADX_VERSION.zip" -o '/jadx.zip' && \
     unzip -q '/jadx.zip' -d "$BUILD_TOOLS_PATH/jadx" && \
     rm '/jadx.zip'
+
+# Install required Krakatau
+RUN curl -Ls "https://codeload.github.com/martin-feaux/Krakatau-fix201/zip/$KRAKATAU_COMMIT_HASH" -o '/krakatau.zip' && \
+    unzip -q '/krakatau.zip' -d "$BUILD_TOOLS_PATH/krakatau" && \
+    mv "$BUILD_TOOLS_PATH/krakatau/Krakatau-fix201-$KRAKATAU_COMMIT_HASH/"* "$BUILD_TOOLS_PATH/krakatau" && \
+    rm -rf "$BUILD_TOOLS_PATH/krakatau/Krakatau-fix201-$KRAKATAU_COMMIT_HASH" && \
+    rm '/krakatau.zip'
 
 # Install ReFlutter
 RUN pip install --root-user-action=ignore reflutter==$REFLUTTER_VERSION
