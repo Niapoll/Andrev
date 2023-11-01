@@ -21,7 +21,9 @@ You can specify addition build arguments. For example:
 docker build --build-arg JDK_VERSION=11 --build-arg ANDROID_VERSION=29 -t andrev .
 ```
 
-> *Remark*: The list of all available arguments below.
+> [!NOTE]
+> The list of all available arguments below.
+
 
 ### Build arguments
 | Name                | Description                      |
@@ -48,7 +50,8 @@ You can resolve addresses in your local network. Specify host argument:
 docker run --name andrev --net=host -ti andrev
 ```
 
-> *Remark*: It's nessary for *ADB*, *Fastboot*, *Frida*, etc.
+> [!NOTE]
+> It's nessary for *ADB*, *Fastboot*, *Frida*, etc.
 
 Also, we can run container in *detached* mode:
 ```bash
@@ -63,4 +66,6 @@ or
 ```bash
 docker exec -ti andrev /bin/bash
 ```
-> *Remark*: **attach** connects to your primary terminal session. When this session stops the container will be stopped also. **exec** creates new secondary terminal session. This session will be automatically closed after closing of primary session.
+
+> [!NOTE]
+> **attach** connects to your primary terminal session. When this session stops the container will be stopped also. **exec** creates new secondary terminal session. This session will be automatically closed after closing of primary session.
